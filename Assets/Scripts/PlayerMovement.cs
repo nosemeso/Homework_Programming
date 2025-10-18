@@ -7,8 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private float _xspeed;
     private float _yspeed;
     public float speed = 3;
-    private string Input = "horizontal";
+    private string InputX = "Horizontal";
 
+    private string InputY = "Vertical";
     private void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>(); 
@@ -16,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        _xspeed = Input.GetAxis("horizontal");
-        _xspeed = Input.GetAxis("Vertical");
-        _rigidbody2D.velocity = Vector2(_xspeed, _yspeed) * speed;
+        _xspeed = Input.GetAxis(InputX);
+        _yspeed = Input.GetAxis(InputY);
+        _rigidbody2D.velocity = new Vector2(_xspeed, _yspeed) * speed;
     }
 }
